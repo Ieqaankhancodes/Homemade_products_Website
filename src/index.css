@@ -270,3 +270,16 @@ h1, h2, h3, h4 {
 .card-shine:hover::before {
   left: 100%;
 }
+
+/* Hide Scrollbar for Horizontal Scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}

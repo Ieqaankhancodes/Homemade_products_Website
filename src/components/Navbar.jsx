@@ -1,79 +1,98 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = ["Home", "Millets", "Soaps", "Our Story"];
 
   return (
-    <header className="relative z-20 page-enter">
-      <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         
-        {/* Brand - Handcrafted Style */}
-        <div className="group cursor-pointer">
-          <h1 className="text-xl md:text-2xl font-medium text-[#3D2E2A] tracking-wide">
-            Shwetdhanya <span className="text-[#8B7355]">&</span> Soha
+        {/* Brand */}
+        <div className="cursor-pointer">
+          <h1 className="text-2xl font-semibold text-[#2E2E2E] tracking-wide">
+            Shwetdhanya <span className="text-[#6B8E23]">&</span> Soha
           </h1>
-          <div className="flex items-center gap-2 mt-0.5">
-            <span className="text-[8px] tracking-[4px] uppercase text-[#A68B5B]">
-              Handmade Foods
-            </span>
-            <span className="text-[#C4A77D]">•</span>
-            <span className="text-[8px] tracking-[4px] uppercase text-[#A68B5B]">
-              Natural Soaps
-            </span>
-          </div>
+          <p className="text-[10px] tracking-[3px] uppercase text-[#A68B5B] mt-1">
+            Handmade • Natural • Pure
+          </p>
         </div>
 
-        {/* Desktop Menu - Elegant & Minimal */}
-        <nav className="hidden md:flex items-center gap-12">
-          {['Home', 'Millets', 'Soaps', 'Our Story'].map((item, index) => (
-            <a 
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center gap-10">
+          {navItems.map((item) => (
+            <a
               key={item}
-              href="#" 
-              className="relative text-sm text-[#5D4E44] hover:text-[#3D2E2A] transition-all duration-300 group"
+              href="#"
+              className="relative text-sm font-medium text-[#444] hover:text-[#6B8E23] transition duration-300 group"
             >
               {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-[#8B7355] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#6B8E23] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </nav>
 
-        {/* Decorative Element */}
+        {/* CTA Button (Premium Touch) */}
         <div className="hidden md:block">
-          <div className="w-8 h-8 border border-[#C4A77D] rounded-full flex items-center justify-center">
-            <span className="text-[#8B7355] text-xs">✿</span>
-          </div>
+          <button className="bg-[#6B8E23] text-white text-sm px-5 py-2 rounded-full hover:bg-[#5a771d] transition-all duration-300 shadow-md">
+            Shop Now
+          </button>
         </div>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-2xl text-[#5D4E44] hover:text-[#3D2E2A] transition"
+          className="md:hidden text-2xl text-[#2E2E2E]"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
         >
-          {open ? '✕' : '☰'}
+          {open ? "✕" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Menu - Quick Toggle */}
-      <div 
-        className={`md:hidden overflow-hidden transition-all duration-200 ${
-          open ? 'max-h-64' : 'max-h-0'
-        }`}
-      >
-        <div className="px-6 py-4 border-t border-[#E8DFD4]">
-          <nav className="flex flex-col gap-1">
-            {['Home', 'Millets', 'Soaps', 'Our Story'].map((item) => (
-              <a 
-                key={item}
-                href="#" 
-                className="text-sm text-[#5D4E44] hover:text-[#3D2E2A] py-3 border-b border-[#F0E8DE] transition-colors"
-              >
-                {item}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </div>
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white shadow-md overflow-hidden"
+          >
+            <div className="px-6 py-6 flex flex-col gap-4">
+              {navItems.map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  className="text-base text-[#444] hover:text-[#6B8E23] transition"
+                  onClick={() => setOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+              <button className="bg-[#6B8E23] text-white py-2 rounded-full mt-4">
+                Shop Now
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

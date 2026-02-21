@@ -2,6 +2,8 @@ import shweta from '../assets/shweta.jpg';
 import shashikala from '../assets/shashikala.jpg';
 import millet from '../assets/millet.jpg';
 import skinhair from '../assets/skin_hair.jpg';
+import milletHero from '../assets/millet_hero.png';
+import sohaHero from '../assets/soha_hero.png';
 import useReveal from '../hooks/useReveal';
 
 export default function Hero() {
@@ -34,78 +36,125 @@ export default function Hero() {
       {/* ================= INTRO ================= */}
       <div
         ref={introRef}
-        className={`max-w-4xl mx-auto text-center px-6 py-28 md:py-36 space-y-8 reveal ${introVisible ? "active" : ""}`}
+        className={`max-w-4xl mx-auto text-center px-6 pt-28 md:pt-24 pb-8 space-y-5 reveal ${introVisible ? "active" : ""}`}
       >
         {/* Decorative Label */}
         <div className="flex items-center justify-center gap-4">
-          <span className="w-12 h-px bg-[#C4A77D]"></span>
+          <span className="w-10 h-px bg-[#C4A77D]"></span>
           <span className="text-[10px] tracking-[5px] uppercase text-[#8B7355]">
             Always Rooted In Nature
           </span>
-          <span className="w-12 h-px bg-[#C4A77D]"></span>
+          <span className="w-10 h-px bg-[#C4A77D]"></span>
         </div>
 
-        <h1 className="text-4xl md:text-6xl font-normal leading-[1.2] text-[#3D2E2A]">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-[#3D2E2A]">
           Nourishment for the body.
           <br />
           <em className="text-[#6B5344]">Care for the skin.</em>
         </h1>
 
-        <p className="text-base md:text-lg text-[#6B5344] max-w-xl mx-auto leading-relaxed">
+        <p className="text-sm md:text-base text-[#6B5344] max-w-xl mx-auto leading-relaxed">
           Two women, two crafts — one rooted in wholesome nutrition,
           the other in gentle botanical wellness. Made with love,
           <span className="text-[#8B7355]"> crafted by hand.</span>
         </p>
       </div>
 
+      {/* ================= PRODUCT STICKERS ================= */}
+      <div className="max-w-6xl mx-auto px-4 md:px-6 pb-10">
+        
+        {/* Desktop: 2 columns grid */}
+        <div className="hidden md:grid md:grid-cols-2 gap-8">
+          
+          {/* Millet Products Sticker */}
+          <div className="relative group">
+            <img
+              src={milletHero}
+              alt="Millet Products"
+              className="w-full max-w-md mx-auto transform -rotate-2 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 drop-shadow-xl"
+            />
+          </div>
+
+          {/* Soap Products Sticker */}
+          <div className="relative group">
+            <img
+              src={sohaHero}
+              alt="Soap Products"
+              className="w-full max-w-md mx-auto transform rotate-2 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 drop-shadow-xl"
+            />
+          </div>
+
+        </div>
+
+        {/* Mobile: Stacked Column */}
+        <div className="md:hidden flex flex-col gap-6">
+          
+          <div className="w-full">
+            <img
+              src={milletHero}
+              alt="Millet Products"
+              className="w-full max-w-sm mx-auto transform -rotate-1 drop-shadow-lg"
+            />
+          </div>
+
+          <div className="w-full">
+            <img
+              src={sohaHero}
+              alt="Soap Products"
+              className="w-full max-w-sm mx-auto transform rotate-1 drop-shadow-lg"
+            />
+          </div>
+
+        </div>
+
+      </div>
+
       {/* ================= FOUNDERS ================= */}
       <div
         ref={founderRef}
-        className={`max-w-4xl mx-auto px-6 pb-28 reveal ${founderVisible ? "active" : ""}`}
+        className={`max-w-4xl mx-auto px-6 pb-14 reveal ${founderVisible ? "active" : ""}`}
       >
 
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <span className="vintage-label">Meet The Founders</span>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:gap-16 text-center">
+        <div className="grid grid-cols-2 gap-6 md:gap-16 text-center">
 
           {/* Founder 1 */}
-          <div className="group space-y-5">
-            <div className="relative w-36 h-36 md:w-48 md:h-48 mx-auto">
-              <div className="absolute inset-2 border border-[#C4A77D]/30 rounded-full"></div>
+          <div className="group space-y-3">
+            <div className="relative w-24 h-24 md:w-36 md:h-36 mx-auto">
+              <div className="absolute inset-1 border border-[#C4A77D]/30 rounded-full"></div>
               <img
                 src={shweta}
                 alt="Founder ShwetDhanya"
                 className="w-full h-full object-cover rounded-full shadow-md transition duration-700 group-hover:scale-105"
               />
-              {/* Decorative corner */}
-              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#C4A77D] rounded-tr-lg"></div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#C4A77D] rounded-tr"></div>
             </div>
-            <h3 className="text-xl md:text-2xl font-medium text-[#3D2E2A]">
+            <h3 className="text-base md:text-xl font-medium text-[#3D2E2A]">
               Shweta
             </h3>
-            <p className="text-sm text-[#8B7355] italic">
+            <p className="text-xs text-[#8B7355] italic">
               Founder, ShwetDhanya
             </p>
           </div>
 
           {/* Founder 2 */}
-          <div className="group space-y-5">
-            <div className="relative w-36 h-36 md:w-48 md:h-48 mx-auto">
-              <div className="absolute inset-2 border border-[#8B7355]/30 rounded-full"></div>
+          <div className="group space-y-3">
+            <div className="relative w-24 h-24 md:w-36 md:h-36 mx-auto">
+              <div className="absolute inset-1 border border-[#8B7355]/30 rounded-full"></div>
               <img
                 src={shashikala}
                 alt="Founder Soha"
                 className="w-full h-full object-cover rounded-full shadow-md transition duration-700 group-hover:scale-105"
               />
-              {/* Decorative corner */}
-              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#8B7355] rounded-tr-lg"></div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#8B7355] rounded-tr"></div>
             </div>
-            <h3 className="text-xl md:text-2xl font-medium text-[#3D2E2A]">
+            <h3 className="text-base md:text-xl font-medium text-[#3D2E2A]">
               Shashikala
             </h3>
-            <p className="text-sm text-[#8B7355] italic">
+            <p className="text-xs text-[#8B7355] italic">
               Founder, Soha
             </p>
           </div>
@@ -120,41 +169,39 @@ export default function Hero() {
       {/* ================= SHWETDHANYA ================= */}
       <div
         ref={milletRef}
-        className={`max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center reveal ${milletVisible ? "active" : ""}`}
+        className={`max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center reveal ${milletVisible ? "active" : ""}`}
       >
-        <div className="space-y-8 order-2 md:order-1">
+        <div className="space-y-5 order-2 md:order-1">
           <div>
             <span className="vintage-label">ShwetDhanya</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-normal text-[#3D2E2A]">
+          <h2 className="text-2xl md:text-3xl font-normal text-[#3D2E2A]">
             Traditional Millet Nutrition
           </h2>
 
-          <div className="w-16 h-px bg-[#C4A77D]"></div>
+          <div className="w-12 h-px bg-[#C4A77D]"></div>
 
-          <p className="text-base text-[#6B5344] leading-relaxed">
+          <p className="text-sm text-[#6B5344] leading-relaxed">
             Freshly ground millet blends crafted with traditional methods. 
             Each batch is prepared with care, preserving the authentic 
             flavors and nutrition that nature intended.
           </p>
 
-          <button className="btn-secondary group">
+          <button className="btn-secondary group text-sm">
             Explore Collection
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
 
         <div className="order-1 md:order-2">
-          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom card-shine">
+          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom">
             <img
               src={millet}
               alt="Millet Products"
               className="w-full object-cover"
-              style={{ minHeight: '400px' }}
+              style={{ minHeight: '250px' }}
             />
-            {/* Corner decoration */}
-            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#FAF6F1]/80 to-transparent"></div>
           </div>
         </div>
       </div>
@@ -162,39 +209,37 @@ export default function Hero() {
       {/* ================= SOHA ================= */}
       <div
         ref={sohaRef}
-        className={`max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center reveal ${sohaVisible ? "active" : ""}`}
+        className={`max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center reveal ${sohaVisible ? "active" : ""}`}
       >
         <div>
-          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom card-shine">
+          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom">
             <img
               src={skinhair}
               alt="Soha Products"
               className="w-full object-cover"
-              style={{ minHeight: '400px' }}
+              style={{ minHeight: '250px' }}
             />
-            {/* Corner decoration */}
-            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#FAF6F1]/80 to-transparent"></div>
           </div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-5">
           <div>
             <span className="vintage-label">Soha</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-normal text-[#3D2E2A]">
+          <h2 className="text-2xl md:text-3xl font-normal text-[#3D2E2A]">
             Botanical Skin & Hair Care
           </h2>
 
-          <div className="w-16 h-px bg-[#8B7355]"></div>
+          <div className="w-12 h-px bg-[#8B7355]"></div>
 
-          <p className="text-base text-[#6B5344] leading-relaxed">
+          <p className="text-sm text-[#6B5344] leading-relaxed">
             Gentle herbal formulations made for daily wellness. 
             Handcrafted soaps using time-honored recipes with 
             coconut oil, neem, turmeric and other natural ingredients.
           </p>
 
-          <button className="btn-primary group">
+          <button className="btn-primary group text-sm">
             Discover More
             <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
