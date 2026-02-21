@@ -1,7 +1,8 @@
 import shweta from '../assets/shweta.jpg';
 import shashikala from '../assets/shashikala.jpg';
+import millet from '../assets/millet.jpg';
+import skinhair from '../assets/skin_hair.jpg';
 import useReveal from '../hooks/useReveal';
-import heroimage from '../assets/hero-image.png';
 
 export default function Hero() {
 
@@ -11,82 +12,100 @@ export default function Hero() {
   const [sohaRef, sohaVisible] = useReveal();
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden texture-overlay">
 
-      {/* Background Layers */}
+      {/* Background Layers - Warm & Organic */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F6F1E8] via-[#F3EEE5] to-[#EFE8DD]" />
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-[#6B8E23]/10 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#8B5E3C]/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F1] via-[#F5EDE4] to-[#F0E8DD]" />
+        
+        {/* Decorative Orbs */}
+        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] bg-[#C4A77D]/8 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-[#8B7355]/8 rounded-full blur-[100px]" />
+        
+        {/* Subtle Pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]" 
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B7355' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+          }}
+        />
       </div>
 
       {/* ================= INTRO ================= */}
       <div
         ref={introRef}
-        className={`max-w-5xl mx-auto text-center px-6 py-24 md:py-32 space-y-8 reveal ${introVisible ? "active" : ""}`}
+        className={`max-w-4xl mx-auto text-center px-6 py-28 md:py-36 space-y-8 reveal ${introVisible ? "active" : ""}`}
       >
-        <p className="text-xs tracking-[6px] uppercase text-[#6B8E23]">
-          Always Rooted In Nature
-        </p>
+        {/* Decorative Label */}
+        <div className="flex items-center justify-center gap-4">
+          <span className="w-12 h-px bg-[#C4A77D]"></span>
+          <span className="text-[10px] tracking-[5px] uppercase text-[#8B7355]">
+            Always Rooted In Nature
+          </span>
+          <span className="w-12 h-px bg-[#C4A77D]"></span>
+        </div>
 
-        <h1 className="text-4xl md:text-6xl font-semibold leading-tight text-[#2F3A2F]">
+        <h1 className="text-4xl md:text-6xl font-normal leading-[1.2] text-[#3D2E2A]">
           Nourishment for the body.
           <br />
-          Care for the skin.
+          <em className="text-[#6B5344]">Care for the skin.</em>
         </h1>
 
-        <p className="text-sm md:text-lg text-[#6D4C41] max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base md:text-lg text-[#6B5344] max-w-xl mx-auto leading-relaxed">
           Two women, two crafts — one rooted in wholesome nutrition,
-          the other in gentle botanical wellness.
+          the other in gentle botanical wellness. Made with love,
+          <span className="text-[#8B7355]"> crafted by hand.</span>
         </p>
       </div>
 
       {/* ================= FOUNDERS ================= */}
       <div
         ref={founderRef}
-        className={`max-w-5xl mx-auto px-6 pb-24 reveal ${founderVisible ? "active" : ""}`}
+        className={`max-w-4xl mx-auto px-6 pb-28 reveal ${founderVisible ? "active" : ""}`}
       >
 
-        <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-[5px] text-[#8B5E3C]">
-            Meet The Founders
-          </p>
+        <div className="text-center mb-16">
+          <span className="vintage-label">Meet The Founders</span>
         </div>
 
-        <div className="grid grid-cols-2 gap-10 md:gap-16 text-center">
+        <div className="grid grid-cols-2 gap-8 md:gap-16 text-center">
 
           {/* Founder 1 */}
-          <div className="group space-y-4">
-            <div className="relative w-32 h-32 md:w-44 md:h-44 mx-auto">
+          <div className="group space-y-5">
+            <div className="relative w-36 h-36 md:w-48 md:h-48 mx-auto">
+              <div className="absolute inset-2 border border-[#C4A77D]/30 rounded-full"></div>
               <img
                 src={shweta}
                 alt="Founder ShwetDhanya"
-                className="w-full h-full object-cover rounded-full shadow-lg transition duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover rounded-full shadow-md transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 rounded-full border border-[#6B8E23]/30"></div>
+              {/* Decorative corner */}
+              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#C4A77D] rounded-tr-lg"></div>
             </div>
-            <h3 className="text-lg md:text-xl font-semibold text-[#2F3A2F]">
+            <h3 className="text-xl md:text-2xl font-medium text-[#3D2E2A]">
               Shweta
             </h3>
-            <p className="text-sm text-[#6D4C41]">
+            <p className="text-sm text-[#8B7355] italic">
               Founder, ShwetDhanya
             </p>
           </div>
 
           {/* Founder 2 */}
-          <div className="group space-y-4">
-            <div className="relative w-32 h-32 md:w-44 md:h-44 mx-auto">
+          <div className="group space-y-5">
+            <div className="relative w-36 h-36 md:w-48 md:h-48 mx-auto">
+              <div className="absolute inset-2 border border-[#8B7355]/30 rounded-full"></div>
               <img
                 src={shashikala}
                 alt="Founder Soha"
-                className="w-full h-full object-cover rounded-full shadow-lg transition duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover rounded-full shadow-md transition duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 rounded-full border border-[#8B5E3C]/30"></div>
+              {/* Decorative corner */}
+              <div className="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-[#8B7355] rounded-tr-lg"></div>
             </div>
-            <h3 className="text-lg md:text-xl font-semibold text-[#2F3A2F]">
+            <h3 className="text-xl md:text-2xl font-medium text-[#3D2E2A]">
               Shashikala
             </h3>
-            <p className="text-sm text-[#6D4C41]">
+            <p className="text-sm text-[#8B7355] italic">
               Founder, Soha
             </p>
           </div>
@@ -95,66 +114,89 @@ export default function Hero() {
 
       </div>
 
+      {/* Organic Divider */}
+      <div className="organic-divider max-w-md mx-auto"></div>
+
       {/* ================= SHWETDHANYA ================= */}
       <div
         ref={milletRef}
-        className={`max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center reveal ${milletVisible ? "active" : ""}`}
+        className={`max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center reveal ${milletVisible ? "active" : ""}`}
       >
-        <div className="space-y-6">
-          <p className="text-xs uppercase tracking-[4px] text-[#6B8E23]">
-            ShwetDhanya
-          </p>
+        <div className="space-y-8 order-2 md:order-1">
+          <div>
+            <span className="vintage-label">ShwetDhanya</span>
+          </div>
 
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#2F3A2F]">
+          <h2 className="text-3xl md:text-4xl font-normal text-[#3D2E2A]">
             Traditional Millet Nutrition
           </h2>
 
-          <p className="text-sm md:text-base text-[#6D4C41] leading-relaxed">
-            Freshly ground millet blends crafted with traditional methods.
+          <div className="w-16 h-px bg-[#C4A77D]"></div>
+
+          <p className="text-base text-[#6B5344] leading-relaxed">
+            Freshly ground millet blends crafted with traditional methods. 
+            Each batch is prepared with care, preserving the authentic 
+            flavors and nutrition that nature intended.
           </p>
 
-          <button className="border border-[#6B8E23] px-6 py-2 text-sm transition hover:bg-[#6B8E23] hover:text-white">
-            Explore →
+          <button className="btn-secondary group">
+            Explore Collection
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
 
-        <div className="overflow-hidden rounded-lg shadow-md">
-          <img
-            src={shweta}
-            alt="Millet Products"
-            className="w-full object-cover transition duration-700 hover:scale-105"
-          />
+        <div className="order-1 md:order-2">
+          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom card-shine">
+            <img
+              src={millet}
+              alt="Millet Products"
+              className="w-full object-cover"
+              style={{ minHeight: '400px' }}
+            />
+            {/* Corner decoration */}
+            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#FAF6F1]/80 to-transparent"></div>
+          </div>
         </div>
       </div>
 
       {/* ================= SOHA ================= */}
       <div
         ref={sohaRef}
-        className={`max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center reveal ${sohaVisible ? "active" : ""}`}
+        className={`max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center reveal ${sohaVisible ? "active" : ""}`}
       >
-        <div className="overflow-hidden rounded-lg shadow-md md:order-1 order-2">
-          <img
-            src={shashikala}
-            alt="Soha Products"
-            className="w-full object-cover transition duration-700 hover:scale-105"
-          />
+        <div>
+          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom card-shine">
+            <img
+              src={skinhair}
+              alt="Soha Products"
+              className="w-full object-cover"
+              style={{ minHeight: '400px' }}
+            />
+            {/* Corner decoration */}
+            <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-[#FAF6F1]/80 to-transparent"></div>
+          </div>
         </div>
 
-        <div className="space-y-6 md:order-2 order-1">
-          <p className="text-xs uppercase tracking-[4px] text-[#8B5E3C]">
-            Soha
-          </p>
+        <div className="space-y-8">
+          <div>
+            <span className="vintage-label">Soha</span>
+          </div>
 
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#2F3A2F]">
+          <h2 className="text-3xl md:text-4xl font-normal text-[#3D2E2A]">
             Botanical Skin & Hair Care
           </h2>
 
-          <p className="text-sm md:text-base text-[#6D4C41] leading-relaxed">
-            Gentle herbal formulations made for daily wellness.
+          <div className="w-16 h-px bg-[#8B7355]"></div>
+
+          <p className="text-base text-[#6B5344] leading-relaxed">
+            Gentle herbal formulations made for daily wellness. 
+            Handcrafted soaps using time-honored recipes with 
+            coconut oil, neem, turmeric and other natural ingredients.
           </p>
 
-          <button className="border border-[#8B5E3C] px-6 py-2 text-sm transition hover:bg-[#8B5E3C] hover:text-white">
-            Discover →
+          <button className="btn-primary group">
+            Discover More
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
       </div>
