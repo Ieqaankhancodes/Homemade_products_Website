@@ -54,19 +54,19 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu - Slide Down */}
+      {/* Mobile Menu - Quick Toggle */}
       <div 
-        className={`md:hidden overflow-hidden transition-all duration-500 ease-out ${
-          open ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden overflow-hidden transition-all duration-200 ${
+          open ? 'max-h-64' : 'max-h-0'
         }`}
       >
-        <div className="px-6 pb-6 pt-2 border-t border-[#E8DFD4]">
-          <nav className="flex flex-col gap-4">
+        <div className="px-6 py-4 border-t border-[#E8DFD4]">
+          <nav className="flex flex-col gap-1">
             {['Home', 'Millets', 'Soaps', 'Our Story'].map((item) => (
               <a 
                 key={item}
                 href="#" 
-                className="text-sm text-[#5D4E44] hover:text-[#3D2E2A] py-2 border-b border-[#F0E8DE]"
+                className="text-sm text-[#5D4E44] hover:text-[#3D2E2A] py-3 border-b border-[#F0E8DE] transition-colors"
               >
                 {item}
               </a>
