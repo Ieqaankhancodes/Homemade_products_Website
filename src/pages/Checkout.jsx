@@ -44,7 +44,7 @@ export default function Checkout() {
 
         try {
             // TODO: Replace with the actual Google Apps Script Web App URL
-            const GOOGLE_SCRIPT_URL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL";
+            const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby7HTk6TuHyG5_zVp2XclD4WYtiGHzDpnDMCrBre9ZDBr8vYgnCxIgCW5w2QzB_nu9nFA/exec";
 
             // We use no-cors mode to prevent CORS issues when hitting Google Scripts from localhost/client
             await fetch(GOOGLE_SCRIPT_URL, {
