@@ -51,7 +51,7 @@ export default function Checkout() {
                 method: "POST",
                 mode: "no-cors",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "text/plain",
                 },
                 body: JSON.stringify(payload)
             });
