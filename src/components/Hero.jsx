@@ -7,241 +7,185 @@ import sohaHero from '../assets/soha_hero.png';
 import useReveal from '../hooks/useReveal';
 
 export default function Hero() {
-
   const [introRef, introVisible] = useReveal();
   const [founderRef, founderVisible] = useReveal();
   const [milletRef, milletVisible] = useReveal();
   const [sohaRef, sohaVisible] = useReveal();
 
   return (
-    <section className="relative overflow-hidden texture-overlay">
-
-      {/* Background Layers - Warm & Organic */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF6F1] via-[#F5EDE4] to-[#F0E8DD]" />
-        
-        {/* Decorative Orbs */}
-        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] bg-[#C4A77D]/8 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-[#8B7355]/8 rounded-full blur-[100px]" />
-        
-        {/* Subtle Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]" 
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B7355' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}
-        />
-      </div>
+    <section className="relative w-full pt-32 pb-20">
 
       {/* ================= INTRO ================= */}
       <div
         ref={introRef}
-        className={`max-w-4xl mx-auto text-center px-6 pt-28 md:pt-24 pb-8 space-y-5 reveal ${introVisible ? "active" : ""}`}
+        className={`max-w-5xl mx-auto text-center px-6 pb-20 space-y-8 reveal ${introVisible ? "active" : ""}`}
       >
         {/* Decorative Label */}
         <div className="flex items-center justify-center gap-4">
-          <span className="w-10 h-px bg-[#C4A77D]"></span>
-          <span className="text-[10px] tracking-[5px] uppercase text-[#8B7355]">
-            Always Rooted In Nature
-          </span>
-          <span className="w-10 h-px bg-[#C4A77D]"></span>
+          <span className="w-12 h-px bg-[#E0D5C1]"></span>
+          <span className="vintage-label">Always Rooted In Nature</span>
+          <span className="w-12 h-px bg-[#E0D5C1]"></span>
         </div>
 
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.15] text-[#3D2E2A]">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-[#2C241B] leading-[1.15] max-w-4xl mx-auto">
           Nourishment for the body.
-          <br />
-          <em className="text-[#6B5344]">Care for the skin.</em>
+          <br className="hidden md:block" />
+          <span className="italic text-[#8C837A] font-light"> Care for the skin.</span>
         </h1>
 
-        <p className="text-sm md:text-base text-[#6B5344] max-w-xl mx-auto leading-relaxed">
-          Two women, two crafts — one rooted in wholesome nutrition,
-          the other in gentle botanical wellness. Made with love,
-          <span className="text-[#8B7355]"> crafted by hand.</span>
+        <p className="text-base md:text-lg text-[#5A4F43] max-w-2xl mx-auto leading-relaxed font-light">
+          Two women, two crafts — one rooted in wholesome nutrition, the other in gentle botanical wellness. Made with love, crafted by hand.
         </p>
       </div>
 
-      {/* ================= PRODUCT STICKERS ================= */}
-      <div className="max-w-6xl mx-auto px-4 md:px-6 pb-10">
-        
-        {/* Desktop: 2 columns grid */}
-        <div className="hidden md:grid md:grid-cols-2 gap-8">
-          
-          {/* Millet Products Sticker */}
-          <div className="relative group">
+      {/* ================= HERO IMAGES (Editorial Grids) ================= */}
+      <div className="max-w-6xl mx-auto px-4 md:px-8 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 items-center">
+
+          <div className="relative group flex justify-center image-zoom">
+            <div className="absolute inset-0 bg-[#E0D5C1]/30 rounded-t-[100px] rounded-b-full scale-90 blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
             <img
               src={milletHero}
               alt="Millet Products"
-              className="w-full max-w-md mx-auto transform -rotate-2 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 drop-shadow-xl"
+              className="w-full max-w-sm relative z-10 drop-shadow-2xl translate-y-0 group-hover:-translate-y-4 transition-transform duration-700"
             />
           </div>
 
-          {/* Soap Products Sticker */}
-          <div className="relative group">
+          <div className="relative group flex justify-center image-zoom md:mt-24">
+            <div className="absolute inset-0 bg-[#E0D5C1]/30 rounded-t-full rounded-b-[100px] scale-90 blur-2xl group-hover:blur-3xl transition-all duration-700"></div>
             <img
               src={sohaHero}
               alt="Soap Products"
-              className="w-full max-w-md mx-auto transform rotate-2 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 drop-shadow-xl"
+              className="w-full max-w-sm relative z-10 drop-shadow-2xl translate-y-0 group-hover:-translate-y-4 transition-transform duration-700"
             />
           </div>
 
         </div>
-
-        {/* Mobile: Stacked Column */}
-        <div className="md:hidden flex flex-col gap-6">
-          
-          <div className="w-full">
-            <img
-              src={milletHero}
-              alt="Millet Products"
-              className="w-full max-w-sm mx-auto transform -rotate-1 drop-shadow-lg"
-            />
-          </div>
-
-          <div className="w-full">
-            <img
-              src={sohaHero}
-              alt="Soap Products"
-              className="w-full max-w-sm mx-auto transform rotate-1 drop-shadow-lg"
-            />
-          </div>
-
-        </div>
-
       </div>
+
+      <div className="organic-divider max-w-md"></div>
 
       {/* ================= FOUNDERS ================= */}
       <div
         ref={founderRef}
-        className={`max-w-4xl mx-auto px-6 pb-14 reveal ${founderVisible ? "active" : ""}`}
+        className={`max-w-5xl mx-auto px-6 py-20 reveal ${founderVisible ? "active" : ""}`}
       >
-
-        <div className="text-center mb-8">
-          <span className="vintage-label">Meet The Founders</span>
+        <div className="text-center mb-16">
+          <span className="vintage-label block mb-4">The Artisans</span>
+          <h2 className="text-3xl md:text-4xl font-serif text-[#2C241B]">Meet The Founders</h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-6 md:gap-16 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-start max-w-3xl mx-auto">
 
           {/* Founder 1 */}
-          <div className="group space-y-3">
-            <div className="relative w-24 h-24 md:w-36 md:h-36 mx-auto">
-              <div className="absolute inset-1 border border-[#C4A77D]/30 rounded-full"></div>
+          <div className="group space-y-6 text-center">
+            <div className="relative w-48 h-64 md:w-56 md:h-72 mx-auto overflow-hidden rounded-t-[100px] rounded-b-xl shadow-lg border-4 border-white/50">
               <img
                 src={shweta}
                 alt="Founder ShwetDhanya"
-                className="w-full h-full object-cover rounded-full shadow-md transition duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition duration-1000 group-hover:scale-105"
               />
-              <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#C4A77D] rounded-tr"></div>
             </div>
-            <h3 className="text-base md:text-xl font-medium text-[#3D2E2A]">
-              Shweta
-            </h3>
-            <p className="text-xs text-[#8B7355] italic">
-              Founder, ShwetDhanya
-            </p>
+            <div>
+              <h3 className="text-xl md:text-2xl font-serif text-[#2C241B] mb-1">
+                Shweta
+              </h3>
+              <p className="vintage-label">
+                ShwetDhanya
+              </p>
+            </div>
           </div>
 
           {/* Founder 2 */}
-          <div className="group space-y-3">
-            <div className="relative w-24 h-24 md:w-36 md:h-36 mx-auto">
-              <div className="absolute inset-1 border border-[#8B7355]/30 rounded-full"></div>
+          <div className="group space-y-6 text-center md:pt-16">
+            <div className="relative w-48 h-64 md:w-56 md:h-72 mx-auto overflow-hidden rounded-t-xl rounded-b-[100px] shadow-lg border-4 border-white/50">
               <img
                 src={shashikala}
                 alt="Founder Soha"
-                className="w-full h-full object-cover rounded-full shadow-md transition duration-700 group-hover:scale-105"
+                className="w-full h-full object-cover transition duration-1000 group-hover:scale-105"
               />
-              <div className="absolute -top-1 -right-1 w-3 h-3 border-t-2 border-r-2 border-[#8B7355] rounded-tr"></div>
             </div>
-            <h3 className="text-base md:text-xl font-medium text-[#3D2E2A]">
-              Shashikala
-            </h3>
-            <p className="text-xs text-[#8B7355] italic">
-              Founder, Soha
-            </p>
+            <div>
+              <h3 className="text-xl md:text-2xl font-serif text-[#2C241B] mb-1">
+                Shashikala
+              </h3>
+              <p className="vintage-label">
+                Soha
+              </p>
+            </div>
           </div>
 
         </div>
-
       </div>
 
-      {/* Organic Divider */}
-      <div className="organic-divider max-w-md mx-auto"></div>
+      <div className="organic-divider max-w-[200px]"></div>
 
-      {/* ================= SHWETDHANYA ================= */}
+      {/* ================= SHWETDHANYA PRODUCT HIGHLIGHT ================= */}
       <div
         ref={milletRef}
-        className={`max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center reveal ${milletVisible ? "active" : ""}`}
+        className={`max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal ${milletVisible ? "active" : ""}`}
       >
-        <div className="space-y-5 order-2 md:order-1">
+        <div className="space-y-8 order-2 md:order-1">
           <div>
-            <span className="vintage-label">ShwetDhanya</span>
+            <span className="vintage-label block mb-3">ShwetDhanya</span>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#2C241B] leading-tight">
+              Traditional Millet Nutrition
+            </h2>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-normal text-[#3D2E2A]">
-            Traditional Millet Nutrition
-          </h2>
-
-          <div className="w-12 h-px bg-[#C4A77D]"></div>
-
-          <p className="text-sm text-[#6B5344] leading-relaxed">
-            Freshly ground millet blends crafted with traditional methods. 
-            Each batch is prepared with care, preserving the authentic 
+          <p className="text-base text-[#5A4F43] leading-relaxed font-light">
+            Freshly ground millet blends crafted with traditional methods.
+            Each batch is prepared with care, preserving the authentic
             flavors and nutrition that nature intended.
           </p>
 
-          <button className="btn-secondary group text-sm">
+          <button className="btn-secondary group">
             Explore Collection
-            <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
 
         <div className="order-1 md:order-2">
-          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom">
+          <div className="relative overflow-hidden rounded-t-[120px] rounded-b-2xl shadow-md border-4 border-white/50 image-zoom aspect-[4/5] bg-white">
             <img
               src={millet}
               alt="Millet Products"
-              className="w-full object-cover"
-              style={{ minHeight: '250px' }}
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
       </div>
 
-      {/* ================= SOHA ================= */}
+      {/* ================= SOHA PRODUCT HIGHLIGHT ================= */}
       <div
         ref={sohaRef}
-        className={`max-w-6xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-8 items-center reveal ${sohaVisible ? "active" : ""}`}
+        className={`max-w-6xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal ${sohaVisible ? "active" : ""}`}
       >
         <div>
-          <div className="relative overflow-hidden rounded-lg shadow-lg image-zoom">
+          <div className="relative overflow-hidden rounded-t-2xl rounded-b-[120px] shadow-md border-4 border-white/50 image-zoom aspect-[4/5] bg-white">
             <img
               src={skinhair}
               alt="Soha Products"
-              className="w-full object-cover"
-              style={{ minHeight: '250px' }}
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-8">
           <div>
-            <span className="vintage-label">Soha</span>
+            <span className="vintage-label block mb-3">Soha</span>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#2C241B] leading-tight">
+              Botanical Skin & Hair Care
+            </h2>
           </div>
 
-          <h2 className="text-2xl md:text-3xl font-normal text-[#3D2E2A]">
-            Botanical Skin & Hair Care
-          </h2>
-
-          <div className="w-12 h-px bg-[#8B7355]"></div>
-
-          <p className="text-sm text-[#6B5344] leading-relaxed">
-            Gentle herbal formulations made for daily wellness. 
-            Handcrafted soaps using time-honored recipes with 
+          <p className="text-base text-[#5A4F43] leading-relaxed font-light">
+            Gentle herbal formulations made for daily wellness.
+            Handcrafted soaps using time-honored recipes with
             coconut oil, neem, turmeric and other natural ingredients.
           </p>
 
-          <button className="btn-primary group text-sm">
+          <button className="btn-primary group">
             Discover More
-            <span className="transition-transform group-hover:translate-x-1">→</span>
           </button>
         </div>
       </div>

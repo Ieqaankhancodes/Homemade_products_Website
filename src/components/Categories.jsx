@@ -1,119 +1,107 @@
-import millet from '../assets/millet.jpg';
-import skinhair from '../assets/skin_hair.jpg';
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Categories() {
+  const categories = [
+    {
+      id: "shwetdhanya",
+      title: "ShwetDhanya",
+      subtitle: "Traditional Millets",
+      image: "/src/assets/millet.jpg",
+      description: "Sustainably grown, stone-ground ancient grains packed with nutrition.",
+      tags: ["Ragi", "Jowar", "Bajra"],
+      bgColor: "bg-[#FDFBF9]",
+      path: "/shwetdhanya"
+    },
+    {
+      id: "soha",
+      title: "Soha",
+      subtitle: "Botanical Care",
+      image: "/src/assets/skin_hair.jpg",
+      description: "Handcrafted soaps and oils infused with indigenous herbs and pure extracts.",
+      tags: ["Hair Oils", "Cold Process Soaps"],
+      bgColor: "bg-[#FDFBF9]",
+      path: "/soha"
+    }
+  ];
+
   return (
-    <section className="max-w-6xl mx-auto px-6 py-24">
-      
-      {/* Section Header */}
-      <div className="text-center mb-20">
-        <span className="vintage-label mb-4">Our Collections</span>
-        <h2 className="text-3xl md:text-4xl font-normal text-[#3D2E2A] mt-4">
-          Crafted With Care
-        </h2>
-        <div className="w-24 h-px bg-[#C4A77D] mx-auto mt-6"></div>
-        <p className="mt-6 text-base text-[#6B5344] max-w-md mx-auto">
-          Two simple offerings, made honestly with love and attention to detail.
-        </p>
-      </div>
+    <section className="py-24 bg-[#FBF9F6] relative z-20">
+      <div className="max-w-6xl mx-auto px-6">
 
-      <div className="grid md:grid-cols-2 gap-12">
-
-        {/* Millets Card */}
-        <div className="group bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover-lift card-shine">
-          
-          {/* Image Container */}
-          <div className="relative overflow-hidden rounded-lg mb-8 image-zoom">
-            <img
-              src={millet}
-              alt="Millets"
-              className="w-full object-cover"
-              style={{ height: '280px' }}
-            />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2A]/10 to-transparent"></div>
-          </div>
-
-          {/* Content */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-normal text-[#3D2E2A]">
-              Fresh Millet Powders
-            </h3>
-            
-            <div className="w-12 h-px bg-[#C4A77D]"></div>
-
-            <p className="text-sm text-[#6B5344] leading-relaxed">
-              Stone-ground ragi, jowar and multi-grain blends. 
-              Nutritious, simple, and prepared weekly in small batches 
-              to ensure maximum freshness and flavor.
-            </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <span className="text-xs text-[#8B7355] uppercase tracking-wider">Available:</span>
-              <span className="text-xs px-2 py-1 bg-[#F5EDE4] text-[#6B5344] rounded">Ragi</span>
-              <span className="text-xs px-2 py-1 bg-[#F5EDE4] text-[#6B5344] rounded">Jowar</span>
-              <span className="text-xs px-2 py-1 bg-[#F5EDE4] text-[#6B5344] rounded">Multi-grain</span>
-            </div>
-
-            <button className="mt-6 text-[#6B5344] font-medium text-sm flex items-center gap-2 group/btn hover:gap-3 transition-all">
-              View Products 
-              <span className="transition-transform">→</span>
-            </button>
-          </div>
+        {/* Section Header */}
+        <div className="text-center mb-20 fade-in-up">
+          <span className="vintage-label block mb-4">Discover</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-[#2C241B]">Our Collections</h2>
+          <div className="organic-divider mx-auto mt-8"></div>
         </div>
 
-        {/* Soaps Card */}
-        <div className="group bg-white/60 backdrop-blur-sm rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover-lift card-shine">
-          
-          {/* Image Container */}
-          <div className="relative overflow-hidden rounded-lg mb-8 image-zoom">
-            <img
-              src={skinhair}
-              alt="Soaps"
-              className="w-full object-cover"
-              style={{ height: '280px' }}
-            />
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#3D2E2A]/10 to-transparent"></div>
-          </div>
+        {/* Categories Grid */}
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+          {categories.map((cat) => (
+            <div
+              key={cat.id}
+              className={`group flex flex-col rounded-2xl overflow-hidden shadow-sm border border-[#E0D5C1]/40 ${cat.bgColor} transition-shadow duration-500 hover:shadow-xl`}
+            >
 
-          {/* Content */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-normal text-[#3D2E2A]">
-              Herbal Handmade Soaps
-            </h3>
-            
-            <div className="w-12 h-px bg-[#8B7355]"></div>
+              {/* Image Container with Zoom Effect */}
+              <div className="relative overflow-hidden aspect-[4/3] bg-[#E0D5C1]/20">
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#2C241B]/60 to-transparent opacity-60"></div>
 
-            <p className="text-sm text-[#6B5344] leading-relaxed">
-              Gentle blends made with coconut oil, neem and turmeric. 
-              Kind to skin. Free from harsh chemicals. Each bar is 
-              handcrafted with botanical ingredients for natural care.
-            </p>
+                {/* Floating Tags */}
+                <div className="absolute bottom-6 left-6 flex flex-wrap gap-2">
+                  {cat.tags.map(tag => (
+                    <span key={tag} className="text-[10px] uppercase tracking-widest px-3 py-1.5 bg-white/90 backdrop-blur-sm text-[#2C241B] rounded-full font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-            <div className="flex items-center gap-3 pt-2">
-              <span className="text-xs text-[#8B7355] uppercase tracking-wider">Types:</span>
-              <span className="text-xs px-2 py-1 bg-[#F5EDE4] text-[#6B5344] rounded">Neem</span>
-              <span className="text-xs px-2 py-1 bg-[#F5EDE4] text-[#6B5344] rounded">Turmeric</span>
-              <span className="text-xs px-2 py-1 bg-[#F5EDE4] text-[#6B5344] rounded">Aloe Vera</span>
+              {/* Content Area */}
+              <div className="p-8 md:p-10 flex flex-col flex-grow">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-[#A8896C] mb-3 font-medium">
+                  {cat.subtitle}
+                </p>
+                <h3 className="text-3xl font-serif text-[#2C241B] mb-4 group-hover:text-[#A8896C] transition-colors">
+                  {cat.title}
+                </h3>
+                <p className="text-[#5A4F43] font-light leading-relaxed mb-10 flex-grow">
+                  {cat.description}
+                </p>
+
+                <Link
+                  to={cat.path}
+                  className="self-start inline-flex items-center gap-3 text-xs uppercase tracking-widest text-[#2C241B] font-medium group/btn"
+                >
+                  <span className="relative">
+                    Explore Collection
+                    <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#2C241B] transition-all duration-300 group-hover/btn:w-full"></span>
+                  </span>
+                  <ArrowRight size={14} className="transition-transform group-hover/btn:translate-x-1" />
+                </Link>
+              </div>
+
             </div>
+          ))}
+        </div>
 
-            <button className="mt-6 text-[#6B5344] font-medium text-sm flex items-center gap-2 group/btn hover:gap-3 transition-all">
-              Explore Collection 
-              <span className="transition-transform">→</span>
-            </button>
-          </div>
+        {/* Bottom Quote/Message */}
+        <div className="mt-32 text-center max-w-2xl mx-auto border-t border-[#E0D5C1]/50 pt-16 relative">
+          <span className="absolute left-1/2 -translate-x-1/2 -top-[14px] bg-[#FBF9F6] px-4 text-[#A8896C]">
+            ✿
+          </span>
+          <p className="text-2xl md:text-3xl font-serif text-[#2C241B] italic leading-tight">
+            "Sourced from the earth, crafted by hands. Every product tells a story of our heritage."
+          </p>
         </div>
 
       </div>
-
-      {/* Bottom Message */}
-      <div className="text-center mt-20 pt-12 border-t border-[#E8DFD4]">
-        <p className="text-sm text-[#8B7355] italic">
-          "Every product tells a story of tradition, care, and natural goodness."
-        </p>
-      </div>
-
     </section>
   );
 }
