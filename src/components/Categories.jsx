@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import milletImg from '../assets/millet.jpg';
+import skinHairImg from '../assets/skin_hair.jpg';
 
 export default function Categories() {
   const categories = [
@@ -7,7 +9,7 @@ export default function Categories() {
       id: "shwetdhanya",
       title: "ShwetDhanya",
       subtitle: "Traditional Millets",
-      image: "/src/assets/millet.jpg",
+      image: milletImg,
       description: "Sustainably grown, stone-ground ancient grains packed with nutrition.",
       tags: ["Ragi", "Jowar", "Bajra"],
       bgColor: "bg-[#FDFBF9]",
@@ -17,7 +19,7 @@ export default function Categories() {
       id: "soha",
       title: "Soha",
       subtitle: "Botanical Care",
-      image: "/src/assets/skin_hair.jpg",
+      image: skinHairImg,
       description: "Handcrafted soaps and oils infused with indigenous herbs and pure extracts.",
       tags: ["Hair Oils", "Cold Process Soaps"],
       bgColor: "bg-[#FDFBF9]",

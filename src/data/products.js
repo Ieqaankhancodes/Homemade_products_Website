@@ -1,3 +1,6 @@
+import milletImg from '../assets/millet.jpg';
+import skinHairImg from '../assets/skin_hair.jpg';
+
 export const products = [
     // ============================================
     // SHWETDHANYA - MILLET PRODUCTS
@@ -9,7 +12,7 @@ export const products = [
         price: 180,
         weight: "500g",
         category: "Millet",
-        image: "/src/assets/millet.jpg",
+        image: milletImg,
         description: "Traditional sprouted ragi powder. Rich in calcium and iron, perfect for making nutritious porridge, dosas, or rotis. Prepared freshly in small batches.",
         ingredients: ["100% Premium Sprouted Finger Millet (Ragi)"]
     },
@@ -20,7 +23,7 @@ export const products = [
         price: 160,
         weight: "500g",
         category: "Millet",
-        image: "/src/assets/millet.jpg",
+        image: milletImg,
         description: "Gluten-free sorghum flour processed using traditional stone-grinding methods to retain maximum nutritional value. Excellent for flatbreads.",
         ingredients: ["100% Premium Sorghum (Jowar)"]
     },
@@ -31,7 +34,7 @@ export const products = [
         price: 320,
         weight: "500g",
         category: "Health Mix",
-        image: "/src/assets/millet.jpg",
+        image: milletImg,
         description: "A cherished traditional recipe combining roasted millets, pulses, and nuts. An ideal wholesome breakfast or energy drink for all ages.",
         ingredients: ["Ragi", "Jowar", "Bajra", "Green Gram", "Roasted Gram", "Almonds", "Cardamom"]
     },
@@ -46,7 +49,7 @@ export const products = [
         price: 120,
         weight: "100g",
         category: "Soap",
-        image: "/src/assets/skin_hair.jpg",
+        image: skinHairImg,
         description: "A deeply cleansing herbal soap infused with the antibacterial properties of neem and holy basil. Helps clear blemishes and soothe irritated skin.",
         ingredients: ["Cold Pressed Coconut Oil", "Neem Extract", "Tulsi Extract", "Lye", "Essential Oils"]
     },
@@ -57,7 +60,7 @@ export const products = [
         price: 150,
         weight: "100g",
         category: "Soap",
-        image: "/src/assets/skin_hair.jpg",
+        image: skinHairImg,
         description: "Brighten your complexion naturally. Hand-poured soap blending organic turmeric root and pure sandalwood for a golden, healthy glow.",
         ingredients: ["Cold Pressed Coconut Oil", "Wild Turmeric", "Sandalwood Powder", "Lye"]
     },
@@ -68,7 +71,7 @@ export const products = [
         price: 280,
         weight: "100ml",
         category: "Hair Care",
-        image: "/src/assets/skin_hair.jpg",
+        image: skinHairImg,
         description: "An intensive hair treatment crafted through slow-infusion. Strengthens roots, prevents premature graying, and promotes thick, healthy growth.",
         ingredients: ["Sesame Oil", "Coconut Oil", "Bhringraj", "Amla", "Brahmi", "Hibiscus"]
     }
